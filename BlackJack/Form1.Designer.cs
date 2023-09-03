@@ -40,6 +40,9 @@
             this.recordInfoLabel = new System.Windows.Forms.Label();
             this.playerCards = new System.Windows.Forms.Label();
             this.dealerCards = new System.Windows.Forms.Label();
+            this.currentMoneyTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // hitButton
@@ -138,21 +141,44 @@
             // 
             // playerCards
             // 
-            this.playerCards.Location = new System.Drawing.Point(320, 294);
+            this.playerCards.Location = new System.Drawing.Point(130, 296);
             this.playerCards.Name = "playerCards";
-            this.playerCards.Size = new System.Drawing.Size(115, 20);
+            this.playerCards.Size = new System.Drawing.Size(500, 20);
             this.playerCards.TabIndex = 10;
             this.playerCards.Text = "Player Cards";
             this.playerCards.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dealerCards
             // 
-            this.dealerCards.Location = new System.Drawing.Point(320, 72);
+            this.dealerCards.Location = new System.Drawing.Point(130, 71);
             this.dealerCards.Name = "dealerCards";
-            this.dealerCards.Size = new System.Drawing.Size(115, 20);
+            this.dealerCards.Size = new System.Drawing.Size(500, 20);
             this.dealerCards.TabIndex = 11;
             this.dealerCards.Text = "Dealer Cards";
             this.dealerCards.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // currentMoneyTextBox
+            // 
+            this.currentMoneyTextBox.Location = new System.Drawing.Point(17, 10);
+            this.currentMoneyTextBox.Name = "currentMoneyTextBox";
+            this.currentMoneyTextBox.Size = new System.Drawing.Size(115, 20);
+            this.currentMoneyTextBox.TabIndex = 12;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 346);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 316);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Bet";
             // 
             // Form1
             // 
@@ -160,6 +186,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.currentMoneyTextBox);
             this.Controls.Add(this.dealerCards);
             this.Controls.Add(this.playerCards);
             this.Controls.Add(this.recordInfoLabel);
@@ -194,6 +223,9 @@
         private System.Windows.Forms.Label recordInfoLabel;
         private System.Windows.Forms.Label playerCards;
         private System.Windows.Forms.Label dealerCards;
+        private System.Windows.Forms.TextBox currentMoneyTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

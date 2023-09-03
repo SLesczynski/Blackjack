@@ -14,6 +14,8 @@ namespace Blackjack
 {
     public partial class Form1 : Form
     {
+        int currentMoney = 100;
+        int bet = 10;
         int wins = 0;
         int loses = 0;
 
@@ -29,7 +31,7 @@ namespace Blackjack
             //Creates 4 decks of cards.
             for (int numberOfDecks = 0; numberOfDecks <= 4; numberOfDecks++)
             {
-                for (int i = 2; i <= 13; i++)
+                for (int i = 2; i <= 14; i++)
                 {
                     cards.Push(new card("H", i));
                     cards.Push(new card("D", i));
@@ -47,10 +49,22 @@ namespace Blackjack
 
         public void shuffleDeck()
         {
-
+            List<card> tempList = cards.ToList();
+            Random rng = new Random();
+            int n = cards.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                card value = tempList[k];
+                tempList[k] = tempList[n];
+                tempList[n] = value;
+            }
+            cards = new Stack<card>(tempList);
         }
         public void startGame()
         {
+            currentMoneyTextBox.Text = currentMoney.ToString();
             createDeck();
             playerCards.Text = "";
             dealerCards.Text = "";
@@ -91,8 +105,13 @@ namespace Blackjack
             playerCount += addCard(playerCards);
             if (playerCount > 21)
             {
-                loses++;
+                lostGame();
                 startGame();
+            }
+
+            if(playerCount == 21)
+            {
+                stand();
             }
 
             playerCardCountTextBox.Text = playerCount.ToString();
@@ -108,14 +127,28 @@ namespace Blackjack
 
             if(dealerCount > 21)
             {
-                wins++;
+                wonGame();
             } else if(dealerCount > playerCount)
             {
-                loses++;
+                lostGame();
             } else
             {
-                wins++;
+                wonGame();
             }
+            startGame();
+        }
+
+        public void wonGame()
+        {
+            wins++;
+            currentMoney += (int)(bet * 1.5);
+            startGame();
+        }
+
+        public void lostGame()
+        {
+            loses++;
+            currentMoney -= bet;
             startGame();
         }
         public Form1()

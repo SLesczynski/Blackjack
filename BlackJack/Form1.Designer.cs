@@ -1,4 +1,4 @@
-﻿namespace BlackJack
+﻿namespace Blackjack
 {
     partial class Form1
     {
@@ -71,7 +71,7 @@
             // 
             // dealerCardCountTextBox
             // 
-            this.dealerCardCountTextBox.Location = new System.Drawing.Point(323, 49);
+            this.dealerCardCountTextBox.Location = new System.Drawing.Point(323, 33);
             this.dealerCardCountTextBox.Name = "dealerCardCountTextBox";
             this.dealerCardCountTextBox.Size = new System.Drawing.Size(115, 20);
             this.dealerCardCountTextBox.TabIndex = 3;
@@ -109,7 +109,7 @@
             // dealerHandCountLabel
             // 
             this.dealerHandCountLabel.AutoSize = true;
-            this.dealerHandCountLabel.Location = new System.Drawing.Point(329, 33);
+            this.dealerHandCountLabel.Location = new System.Drawing.Point(331, 56);
             this.dealerHandCountLabel.Name = "dealerHandCountLabel";
             this.dealerHandCountLabel.Size = new System.Drawing.Size(98, 13);
             this.dealerHandCountLabel.TabIndex = 7;
@@ -138,26 +138,27 @@
             // 
             // playerCards
             // 
-            this.playerCards.AutoSize = true;
-            this.playerCards.Location = new System.Drawing.Point(356, 292);
+            this.playerCards.Location = new System.Drawing.Point(320, 294);
             this.playerCards.Name = "playerCards";
-            this.playerCards.Size = new System.Drawing.Size(35, 13);
+            this.playerCards.Size = new System.Drawing.Size(115, 20);
             this.playerCards.TabIndex = 10;
-            this.playerCards.Text = "label1";
+            this.playerCards.Text = "Player Cards";
+            this.playerCards.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dealerCards
             // 
-            this.dealerCards.AutoSize = true;
-            this.dealerCards.Location = new System.Drawing.Point(356, 78);
+            this.dealerCards.Location = new System.Drawing.Point(320, 72);
             this.dealerCards.Name = "dealerCards";
-            this.dealerCards.Size = new System.Drawing.Size(35, 13);
+            this.dealerCards.Size = new System.Drawing.Size(115, 20);
             this.dealerCards.TabIndex = 11;
-            this.dealerCards.Text = "label1";
+            this.dealerCards.Text = "Dealer Cards";
+            this.dealerCards.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dealerCards);
             this.Controls.Add(this.playerCards);

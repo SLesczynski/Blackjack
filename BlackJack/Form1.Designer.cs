@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.hitButton = new System.Windows.Forms.Button();
-            this.playerCardCountTextBox = new System.Windows.Forms.TextBox();
             this.startGameButton = new System.Windows.Forms.Button();
-            this.dealerCardCountTextBox = new System.Windows.Forms.TextBox();
             this.quitGameButton = new System.Windows.Forms.Button();
             this.standButton = new System.Windows.Forms.Button();
             this.playerHandCountLabel = new System.Windows.Forms.Label();
@@ -43,47 +41,38 @@
             this.currentMoneyTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.playerHandCount = new System.Windows.Forms.Label();
+            this.dealerHandCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // hitButton
             // 
-            this.hitButton.Location = new System.Drawing.Point(202, 382);
+            this.hitButton.Location = new System.Drawing.Point(269, 470);
+            this.hitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hitButton.Name = "hitButton";
-            this.hitButton.Size = new System.Drawing.Size(115, 56);
+            this.hitButton.Size = new System.Drawing.Size(153, 69);
             this.hitButton.TabIndex = 0;
             this.hitButton.Text = "Hit";
             this.hitButton.UseVisualStyleBackColor = true;
             this.hitButton.Click += new System.EventHandler(this.hitButton_Click);
             // 
-            // playerCardCountTextBox
-            // 
-            this.playerCardCountTextBox.Location = new System.Drawing.Point(323, 332);
-            this.playerCardCountTextBox.Name = "playerCardCountTextBox";
-            this.playerCardCountTextBox.Size = new System.Drawing.Size(115, 20);
-            this.playerCardCountTextBox.TabIndex = 1;
-            // 
             // startGameButton
             // 
-            this.startGameButton.Location = new System.Drawing.Point(12, 382);
+            this.startGameButton.Location = new System.Drawing.Point(16, 470);
+            this.startGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.startGameButton.Name = "startGameButton";
-            this.startGameButton.Size = new System.Drawing.Size(115, 56);
+            this.startGameButton.Size = new System.Drawing.Size(153, 69);
             this.startGameButton.TabIndex = 2;
             this.startGameButton.Text = "Start Game";
             this.startGameButton.UseVisualStyleBackColor = true;
             this.startGameButton.Click += new System.EventHandler(this.startGameButton_Click);
             // 
-            // dealerCardCountTextBox
-            // 
-            this.dealerCardCountTextBox.Location = new System.Drawing.Point(323, 33);
-            this.dealerCardCountTextBox.Name = "dealerCardCountTextBox";
-            this.dealerCardCountTextBox.Size = new System.Drawing.Size(115, 20);
-            this.dealerCardCountTextBox.TabIndex = 3;
-            // 
             // quitGameButton
             // 
-            this.quitGameButton.Location = new System.Drawing.Point(673, 382);
+            this.quitGameButton.Location = new System.Drawing.Point(897, 470);
+            this.quitGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.quitGameButton.Name = "quitGameButton";
-            this.quitGameButton.Size = new System.Drawing.Size(115, 56);
+            this.quitGameButton.Size = new System.Drawing.Size(153, 69);
             this.quitGameButton.TabIndex = 4;
             this.quitGameButton.Text = "Quit Game";
             this.quitGameButton.UseVisualStyleBackColor = true;
@@ -91,9 +80,10 @@
             // 
             // standButton
             // 
-            this.standButton.Location = new System.Drawing.Point(444, 382);
+            this.standButton.Location = new System.Drawing.Point(592, 470);
+            this.standButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.standButton.Name = "standButton";
-            this.standButton.Size = new System.Drawing.Size(115, 56);
+            this.standButton.Size = new System.Drawing.Size(153, 69);
             this.standButton.TabIndex = 5;
             this.standButton.Text = "Stand";
             this.standButton.UseVisualStyleBackColor = true;
@@ -102,9 +92,10 @@
             // playerHandCountLabel
             // 
             this.playerHandCountLabel.AutoSize = true;
-            this.playerHandCountLabel.Location = new System.Drawing.Point(331, 316);
+            this.playerHandCountLabel.Location = new System.Drawing.Point(441, 389);
+            this.playerHandCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerHandCountLabel.Name = "playerHandCountLabel";
-            this.playerHandCountLabel.Size = new System.Drawing.Size(96, 13);
+            this.playerHandCountLabel.Size = new System.Drawing.Size(119, 16);
             this.playerHandCountLabel.TabIndex = 6;
             this.playerHandCountLabel.Text = "Player Hand Count";
             this.playerHandCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -112,9 +103,10 @@
             // dealerHandCountLabel
             // 
             this.dealerHandCountLabel.AutoSize = true;
-            this.dealerHandCountLabel.Location = new System.Drawing.Point(331, 56);
+            this.dealerHandCountLabel.Location = new System.Drawing.Point(441, 69);
+            this.dealerHandCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dealerHandCountLabel.Name = "dealerHandCountLabel";
-            this.dealerHandCountLabel.Size = new System.Drawing.Size(98, 13);
+            this.dealerHandCountLabel.Size = new System.Drawing.Size(121, 16);
             this.dealerHandCountLabel.TabIndex = 7;
             this.dealerHandCountLabel.Text = "Dealer Hand Count";
             this.dealerHandCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,69 +115,96 @@
             // 
             this.recordLabel.AutoSize = true;
             this.recordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.recordLabel.Location = new System.Drawing.Point(12, 33);
+            this.recordLabel.Location = new System.Drawing.Point(16, 41);
+            this.recordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.recordLabel.Name = "recordLabel";
-            this.recordLabel.Size = new System.Drawing.Size(94, 29);
+            this.recordLabel.Size = new System.Drawing.Size(114, 35);
             this.recordLabel.TabIndex = 8;
             this.recordLabel.Text = "Record";
             // 
             // recordInfoLabel
             // 
             this.recordInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.recordInfoLabel.Location = new System.Drawing.Point(13, 62);
+            this.recordInfoLabel.Location = new System.Drawing.Point(17, 76);
+            this.recordInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.recordInfoLabel.Name = "recordInfoLabel";
-            this.recordInfoLabel.Size = new System.Drawing.Size(94, 29);
+            this.recordInfoLabel.Size = new System.Drawing.Size(125, 36);
             this.recordInfoLabel.TabIndex = 9;
             this.recordInfoLabel.Text = "0 - 0";
             this.recordInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // playerCards
             // 
-            this.playerCards.Location = new System.Drawing.Point(130, 296);
+            this.playerCards.Location = new System.Drawing.Point(173, 364);
+            this.playerCards.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerCards.Name = "playerCards";
-            this.playerCards.Size = new System.Drawing.Size(500, 20);
+            this.playerCards.Size = new System.Drawing.Size(667, 25);
             this.playerCards.TabIndex = 10;
             this.playerCards.Text = "Player Cards";
             this.playerCards.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dealerCards
             // 
-            this.dealerCards.Location = new System.Drawing.Point(130, 71);
+            this.dealerCards.Location = new System.Drawing.Point(173, 87);
+            this.dealerCards.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dealerCards.Name = "dealerCards";
-            this.dealerCards.Size = new System.Drawing.Size(500, 20);
+            this.dealerCards.Size = new System.Drawing.Size(667, 25);
             this.dealerCards.TabIndex = 11;
             this.dealerCards.Text = "Dealer Cards";
             this.dealerCards.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // currentMoneyTextBox
             // 
-            this.currentMoneyTextBox.Location = new System.Drawing.Point(17, 10);
+            this.currentMoneyTextBox.Location = new System.Drawing.Point(23, 12);
+            this.currentMoneyTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.currentMoneyTextBox.Name = "currentMoneyTextBox";
-            this.currentMoneyTextBox.Size = new System.Drawing.Size(115, 20);
+            this.currentMoneyTextBox.Size = new System.Drawing.Size(152, 22);
             this.currentMoneyTextBox.TabIndex = 12;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 346);
+            this.textBox1.Location = new System.Drawing.Point(16, 426);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(132, 22);
             this.textBox1.TabIndex = 13;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 316);
+            this.label1.Location = new System.Drawing.Point(16, 389);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.Size = new System.Drawing.Size(27, 16);
             this.label1.TabIndex = 14;
             this.label1.Text = "Bet";
             // 
+            // playerHandCount
+            // 
+            this.playerHandCount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.playerHandCount.Location = new System.Drawing.Point(431, 409);
+            this.playerHandCount.Name = "playerHandCount";
+            this.playerHandCount.Size = new System.Drawing.Size(152, 22);
+            this.playerHandCount.TabIndex = 15;
+            this.playerHandCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dealerHandCount
+            // 
+            this.dealerHandCount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dealerHandCount.Location = new System.Drawing.Point(431, 41);
+            this.dealerHandCount.Name = "dealerHandCount";
+            this.dealerHandCount.Size = new System.Drawing.Size(152, 22);
+            this.dealerHandCount.TabIndex = 16;
+            this.dealerHandCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.dealerHandCount);
+            this.Controls.Add(this.playerHandCount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.currentMoneyTextBox);
@@ -197,10 +216,9 @@
             this.Controls.Add(this.playerHandCountLabel);
             this.Controls.Add(this.standButton);
             this.Controls.Add(this.quitGameButton);
-            this.Controls.Add(this.dealerCardCountTextBox);
             this.Controls.Add(this.startGameButton);
-            this.Controls.Add(this.playerCardCountTextBox);
             this.Controls.Add(this.hitButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "BlackJack";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -212,9 +230,7 @@
         #endregion
 
         private System.Windows.Forms.Button hitButton;
-        private System.Windows.Forms.TextBox playerCardCountTextBox;
         private System.Windows.Forms.Button startGameButton;
-        private System.Windows.Forms.TextBox dealerCardCountTextBox;
         private System.Windows.Forms.Button quitGameButton;
         private System.Windows.Forms.Button standButton;
         private System.Windows.Forms.Label playerHandCountLabel;
@@ -226,6 +242,8 @@
         private System.Windows.Forms.TextBox currentMoneyTextBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label playerHandCount;
+        private System.Windows.Forms.Label dealerHandCount;
     }
 }
 

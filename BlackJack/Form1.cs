@@ -25,7 +25,7 @@ namespace Blackjack
         int dealerHiddenCard = 0;
         int playerCount = 0;
 
-        Stack<card> cards = new Stack<card>();
+        Stack<Card> cards = new Stack<Card>();
         public void createDeck()
         {
             //Creates 4 decks of cards.
@@ -33,10 +33,10 @@ namespace Blackjack
             {
                 for (int i = 2; i <= 14; i++)
                 {
-                    cards.Push(new card("H", i));
-                    cards.Push(new card("D", i));
-                    cards.Push(new card("S", i));
-                    cards.Push(new card("C", i));
+                    cards.Push(new Card("H", i));
+                    cards.Push(new Card("D", i));
+                    cards.Push(new Card("S", i));
+                    cards.Push(new Card("C", i));
                 }
             }
 
@@ -49,21 +49,22 @@ namespace Blackjack
 
         public void shuffleDeck()
         {
-            List<card> tempList = cards.ToList();
+            List<Card> tempList = cards.ToList();
             Random rng = new Random();
             int n = cards.Count;
             while (n > 1)
             {
                 n--;
                 int k = rng.Next(n + 1);
-                card value = tempList[k];
+                Card value = tempList[k];
                 tempList[k] = tempList[n];
                 tempList[n] = value;
             }
-            cards = new Stack<card>(tempList);
+            cards = new Stack<Card>(tempList);
         }
         public void startGame()
         {
+            Console.WriteLine("--------New Game-------");
             currentMoneyTextBox.Text = currentMoney.ToString();
             createDeck();
             playerCards.Text = "";
@@ -73,27 +74,29 @@ namespace Blackjack
 
             dealerCount = 0;
             playerCount = 0;
+
             playerCount+= addCard(playerCards);
-            playerCardCountTextBox.Text = playerCount.ToString();
+            playerHandCount.Text = playerCount.ToString();
 
             dealerCount+= addCard(dealerCards);
-            dealerCardCountTextBox.Text = playerCount.ToString();
+            dealerHandCount.Text = dealerCount.ToString();
+            Console.WriteLine(dealerCount);
 
             playerCount += addCard(playerCards);
-            playerCardCountTextBox.Text = playerCount.ToString();
+            playerHandCount.Text = playerCount.ToString();
 
             dealerHiddenCard += addCard(dealerCards);
 
             if (dealerCount + dealerHiddenCard == 21)
             {
                 dealerCount += dealerHiddenCard;
-                dealerCardCountTextBox.Text = playerCount.ToString();
+                dealerHandCount.Text = playerCount.ToString();
             }
         }
 
         public int addCard(Label hand)
         {
-            card temp = cards.Pop();
+            Card temp = cards.Pop();
             int cardValue = temp.getValue();
             int cardNumber = temp.getNumber();
             hand.Text = hand.Text + "{" + temp.getSuit() + "," + cardNumber.ToString() + ","+ cardValue.ToString() + "}";
@@ -114,7 +117,7 @@ namespace Blackjack
                 stand();
             }
 
-            playerCardCountTextBox.Text = playerCount.ToString();
+            playerHandCount.Text = playerCount.ToString();
         }
 
         public void stand()
@@ -123,6 +126,7 @@ namespace Blackjack
             while(dealerCount < 17)
             {
                 dealerCount += addCard(dealerCards);
+                Console.WriteLine(dealerCount.ToString());
             }
 
             if(dealerCount > 21)
@@ -142,14 +146,12 @@ namespace Blackjack
         {
             wins++;
             currentMoney += (int)(bet * 1.5);
-            startGame();
         }
 
         public void lostGame()
         {
             loses++;
             currentMoney -= bet;
-            startGame();
         }
         public Form1()
         {

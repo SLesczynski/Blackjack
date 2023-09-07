@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-    internal class card
+    internal class Card
     {
         string suit;
         int number;
         int value;
 
-        public card(string suit, int number)
+        public Card(string suit, int number)
         {
             this.suit = suit;
             this.number = number;
-            if(number < 10)
+            if (number < 10)
             {
                 this.value = number;
-            } else
+            }
+            else
             {
                 this.value = 10;
             }

@@ -7,33 +7,34 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    internal class Hand
+    public class Hand
     {
         int lightCount;
         int heavyCount;
         List<Card> currentHandCards = new List<Card>();
-        Hand(Card card)
+        public Hand()
         {
-            currentHandCards.Add(card);
+            lightCount = 0;
+            heavyCount = 0;
         }
 
-        public void addCard(Card card)
+        public void AddCard(Card card)
         {
             currentHandCards.Add(card);
-            if (card.getNumber() == 14)
+            if (card.GetNumber() == 14)
             {
                 lightCount++;
                 heavyCount += 11;
             }
             else
             {
-                lightCount += card.getValue();
-                heavyCount += card.getValue();
+                lightCount += card.GetValue();
+                heavyCount += card.GetValue();
             }
         }
 
-        public int getLightCount() { return lightCount; }
-        public int getHeavyCount() { return heavyCount; }
-        public List<Card> getCurrentHandCards() { return currentHandCards; }
+        public int GetLightCount() { return lightCount; }
+        public int GetHeavyCount() { return heavyCount; }
+        public List<Card> GetCurrentHandCards() { return currentHandCards; }
     }
 }

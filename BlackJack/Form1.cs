@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlackJack;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,14 +20,12 @@ namespace Blackjack
         int wins = 0;
         int loses = 0;
 
-        Random rnd = new Random();
-
-        int dealerCount = 0;
-        int dealerHiddenCard = 0;
-        int playerCount = 0;
+        Hand playerHand = new Hand();
+        Hand dealerHand = new Hand();
+        Card dealerHiddenCard;
 
         Stack<Card> cards = new Stack<Card>();
-        public void createDeck()
+        public void CreateDeck()
         {
             //Creates 4 decks of cards.
             for (int numberOfDecks = 0; numberOfDecks <= 4; numberOfDecks++)
@@ -43,11 +42,11 @@ namespace Blackjack
             //Shuffles the deck 10 times.
             for(int i = 0; i < 10; i++)
             {
-                shuffleDeck();
+                ShuffleDeck();
             }
         }
 
-        public void shuffleDeck()
+        public void ShuffleDeck()
         {
             List<Card> tempList = cards.ToList();
             Random rng = new Random();
@@ -62,93 +61,91 @@ namespace Blackjack
             }
             cards = new Stack<Card>(tempList);
         }
-        public void startGame()
+        public void StartGame()
         {
             Console.WriteLine("--------New Game-------");
             currentMoneyTextBox.Text = currentMoney.ToString();
-            createDeck();
+            CreateDeck();
             playerCards.Text = "";
             dealerCards.Text = "";
 
             recordInfoLabel.Text = wins.ToString() + " - " + loses.ToString();
 
-            dealerCount = 0;
-            playerCount = 0;
+            bet = Int32.Parse(BetInputBox.Text);
+            dealerHand = new Hand();
+            playerHand = new Hand();
 
-            playerCount+= addCard(playerCards);
-            playerHandCount.Text = playerCount.ToString();
+            playerHand.AddCard(GetNextCard());
+            playerHandCount.Text = playerHand.GetLightCount().ToString();
 
-            dealerCount+= addCard(dealerCards);
-            dealerHandCount.Text = dealerCount.ToString();
-            Console.WriteLine(dealerCount);
+            dealerHand.AddCard(GetNextCard());
+            dealerHandCount.Text = dealerHand.GetLightCount().ToString();
+            Console.WriteLine(dealerHand.GetLightCount());
 
-            playerCount += addCard(playerCards);
-            playerHandCount.Text = playerCount.ToString();
+            playerHand.AddCard(GetNextCard());
+            playerHandCount.Text = playerHand.GetLightCount().ToString();
 
-            dealerHiddenCard += addCard(dealerCards);
+            dealerHiddenCard = GetNextCard();
 
-            if (dealerCount + dealerHiddenCard == 21)
+            if (dealerHand.GetHeavyCount() + dealerHiddenCard.GetValue() == 21)
             {
-                dealerCount += dealerHiddenCard;
-                dealerHandCount.Text = playerCount.ToString();
+                dealerHand.AddCard(dealerHiddenCard);
+                dealerHandCount.Text = dealerHand.GetLightCount().ToString();
             }
         }
 
-        public int addCard(Label hand)
+        public Card GetNextCard()
         {
             Card temp = cards.Pop();
-            int cardValue = temp.getValue();
-            int cardNumber = temp.getNumber();
-            hand.Text = hand.Text + "{" + temp.getSuit() + "," + cardNumber.ToString() + ","+ cardValue.ToString() + "}";
-            return temp.getValue();
+            return temp;
         }
 
-        public void hit()
+        public void Hit()
         {
-            playerCount += addCard(playerCards);
-            if (playerCount > 21)
+            playerHand.AddCard(GetNextCard());
+            if (playerHand.GetLightCount() > 21)
             {
-                lostGame();
-                startGame();
+                LostGame();
+                StartGame();
             }
 
-            if(playerCount == 21)
+            if(playerHand.GetLightCount() == 21)
             {
-                stand();
+                Stand();
             }
 
-            playerHandCount.Text = playerCount.ToString();
+            playerHandCount.Text = playerHand.GetLightCount().ToString();
         }
 
-        public void stand()
+        public void Stand()
         {
-            dealerCount += dealerHiddenCard;
-            while(dealerCount < 17)
+            dealerHand.AddCard(dealerHiddenCard);
+            while(dealerHand.GetLightCount() < 17)
             {
-                dealerCount += addCard(dealerCards);
-                Console.WriteLine(dealerCount.ToString());
+                dealerHand.AddCard(GetNextCard());
+                Console.WriteLine(dealerHand.GetLightCount().ToString());
             }
 
-            if(dealerCount > 21)
+            if(dealerHand.GetLightCount() > 21)
             {
-                wonGame();
-            } else if(dealerCount > playerCount)
+                WonGame();
+            } else if(dealerHand.GetLightCount() > playerHand.GetLightCount())
             {
-                lostGame();
+                LostGame();
             } else
             {
-                wonGame();
+                WonGame();
             }
-            startGame();
+            StartGame();
         }
 
-        public void wonGame()
+        public void WonGame()
         {
             wins++;
             currentMoney += (int)(bet * 1.5);
         }
 
-        public void lostGame()
+        public void LostGame()
         {
             loses++;
             currentMoney -= bet;
@@ -163,22 +160,22 @@ namespace Blackjack
         {
             
         }
-        private void startGameButton_Click(object sender, EventArgs e)
+        private void StartGameButton_Click(object sender, EventArgs e)
         {
-            startGame();
+            StartGame();
         }
 
-        private void hitButton_Click(object sender, EventArgs e)
+        private void HitButton_Click(object sender, EventArgs e)
         {
-            hit();
+            Hit();
         }
 
-        private void standButton_Click(object sender, EventArgs e)
+        private void StandButton_Click(object sender, EventArgs e)
         {
-            stand();
+            Stand();
         }
 
-        private void quitGameButton_Click(object sender, EventArgs e)
+        private void QuitGameButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -39,7 +39,7 @@
             this.playerCards = new System.Windows.Forms.Label();
             this.dealerCards = new System.Windows.Forms.Label();
             this.currentMoneyTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BetInputBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.playerHandCount = new System.Windows.Forms.Label();
             this.dealerHandCount = new System.Windows.Forms.Label();
@@ -48,46 +48,46 @@
             // hitButton
             // 
             this.hitButton.Location = new System.Drawing.Point(269, 470);
-            this.hitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hitButton.Margin = new System.Windows.Forms.Padding(4);
             this.hitButton.Name = "hitButton";
             this.hitButton.Size = new System.Drawing.Size(153, 69);
             this.hitButton.TabIndex = 0;
             this.hitButton.Text = "Hit";
             this.hitButton.UseVisualStyleBackColor = true;
-            this.hitButton.Click += new System.EventHandler(this.hitButton_Click);
+            this.hitButton.Click += new System.EventHandler(this.HitButton_Click);
             // 
             // startGameButton
             // 
             this.startGameButton.Location = new System.Drawing.Point(16, 470);
-            this.startGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.startGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.startGameButton.Name = "startGameButton";
             this.startGameButton.Size = new System.Drawing.Size(153, 69);
             this.startGameButton.TabIndex = 2;
             this.startGameButton.Text = "Start Game";
             this.startGameButton.UseVisualStyleBackColor = true;
-            this.startGameButton.Click += new System.EventHandler(this.startGameButton_Click);
+            this.startGameButton.Click += new System.EventHandler(this.StartGameButton_Click);
             // 
             // quitGameButton
             // 
             this.quitGameButton.Location = new System.Drawing.Point(897, 470);
-            this.quitGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.quitGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.quitGameButton.Name = "quitGameButton";
             this.quitGameButton.Size = new System.Drawing.Size(153, 69);
             this.quitGameButton.TabIndex = 4;
             this.quitGameButton.Text = "Quit Game";
             this.quitGameButton.UseVisualStyleBackColor = true;
-            this.quitGameButton.Click += new System.EventHandler(this.quitGameButton_Click);
+            this.quitGameButton.Click += new System.EventHandler(this.QuitGameButton_Click);
             // 
             // standButton
             // 
             this.standButton.Location = new System.Drawing.Point(592, 470);
-            this.standButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.standButton.Margin = new System.Windows.Forms.Padding(4);
             this.standButton.Name = "standButton";
             this.standButton.Size = new System.Drawing.Size(153, 69);
             this.standButton.TabIndex = 5;
             this.standButton.Text = "Stand";
             this.standButton.UseVisualStyleBackColor = true;
-            this.standButton.Click += new System.EventHandler(this.standButton_Click);
+            this.standButton.Click += new System.EventHandler(this.StandButton_Click);
             // 
             // playerHandCountLabel
             // 
@@ -156,18 +156,18 @@
             // currentMoneyTextBox
             // 
             this.currentMoneyTextBox.Location = new System.Drawing.Point(23, 12);
-            this.currentMoneyTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentMoneyTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.currentMoneyTextBox.Name = "currentMoneyTextBox";
             this.currentMoneyTextBox.Size = new System.Drawing.Size(152, 22);
             this.currentMoneyTextBox.TabIndex = 12;
             // 
-            // textBox1
+            // BetInputBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 426);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 13;
+            this.BetInputBox.Location = new System.Drawing.Point(16, 426);
+            this.BetInputBox.Margin = new System.Windows.Forms.Padding(4);
+            this.BetInputBox.Name = "BetInputBox";
+            this.BetInputBox.Size = new System.Drawing.Size(132, 22);
+            this.BetInputBox.TabIndex = 13;
             // 
             // label1
             // 
@@ -206,7 +206,7 @@
             this.Controls.Add(this.dealerHandCount);
             this.Controls.Add(this.playerHandCount);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BetInputBox);
             this.Controls.Add(this.currentMoneyTextBox);
             this.Controls.Add(this.dealerCards);
             this.Controls.Add(this.playerCards);
@@ -218,7 +218,7 @@
             this.Controls.Add(this.quitGameButton);
             this.Controls.Add(this.startGameButton);
             this.Controls.Add(this.hitButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "BlackJack";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -240,7 +240,7 @@
         private System.Windows.Forms.Label playerCards;
         private System.Windows.Forms.Label dealerCards;
         private System.Windows.Forms.TextBox currentMoneyTextBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox BetInputBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label playerHandCount;
         private System.Windows.Forms.Label dealerHandCount;

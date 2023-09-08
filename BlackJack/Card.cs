@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-    internal class Card
+    public class Card
     {
-        string suit;
-        int number;
-        int value;
+        readonly string suit;
+        readonly int number;
+        readonly int value;
 
         public Card(string suit, int number)
         {
@@ -26,17 +26,17 @@ namespace Blackjack
             }
         }
 
-        public string getSuit()
+        public string GetSuit()
         {
             return this.suit;
         }
 
-        public int getNumber()
+        public int GetNumber()
         {
             return this.number;
         }
 
-        public int getValue()
+        public int GetValue()
         {
             return this.value;
         }

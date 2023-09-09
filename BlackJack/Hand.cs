@@ -21,7 +21,7 @@ namespace BlackJack
         public void AddCard(Card card)
         {
             currentHandCards.Add(card);
-            if (card.GetNumber() == 14)
+            if (card.GetNumeral() == "A")
             {
                 lightCount++;
                 heavyCount += 11;
@@ -31,6 +31,13 @@ namespace BlackJack
                 lightCount += card.GetValue();
                 heavyCount += card.GetValue();
             }
+        }
+
+        public String GetCardsInHand()
+        {
+            String returnString = "";
+            foreach(Card card in currentHandCards) { returnString = returnString + "{" + card.GetSuit() + "," + card.GetNumeral() + "}"; }
+            return returnString;
         }
 
         public int GetLightCount() { return lightCount; }

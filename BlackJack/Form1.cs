@@ -63,11 +63,11 @@ namespace Blackjack
         }
         public void StartGame()
         {
-            Console.WriteLine("--------New Game-------");
             currentMoneyTextBox.Text = currentMoney.ToString();
             CreateDeck();
             playerCards.Text = "";
             dealerCards.Text = "";
+            BetInputBox.Text = "1";
 
             recordInfoLabel.Text = wins.ToString() + " - " + loses.ToString();
 
@@ -80,10 +80,12 @@ namespace Blackjack
 
             dealerHand.AddCard(GetNextCard());
             dealerHandCount.Text = dealerHand.GetLightCount().ToString();
-            Console.WriteLine(dealerHand.GetLightCount());
 
             playerHand.AddCard(GetNextCard());
             playerHandCount.Text = playerHand.GetLightCount().ToString();
+
+            playerCards.Text = playerHand.GetCardsInHand();
+            dealerCards.Text = dealerHand.GetCardsInHand();
 
             dealerHiddenCard = GetNextCard();
 
@@ -115,6 +117,7 @@ namespace Blackjack
             }
 
             playerHandCount.Text = playerHand.GetLightCount().ToString();
+            playerCards.Text = playerHand.GetCardsInHand();
         }
 
         public void Stand()
@@ -123,7 +126,6 @@ namespace Blackjack
             while(dealerHand.GetLightCount() < 17)
             {
                 dealerHand.AddCard(GetNextCard());
-                Console.WriteLine(dealerHand.GetLightCount().ToString());
             }
 
             if(dealerHand.GetLightCount() > 21)
@@ -143,12 +145,19 @@ namespace Blackjack
         {
             wins++;
             currentMoney += (int)(bet * 1.5);
+            EndGame();
         }
 
         public void LostGame()
         {
             loses++;
             currentMoney -= bet;
+            EndGame();
+        }
+
+        public void EndGame()
+        {
+            PastGames.Text = PastGames.Text + "----Game----\nDealer Hand: " + dealerHand.GetLightCount() + "\nPlayer Hand: " + playerHand.GetLightCount() + "\n";
         }
         public Form1()
         {

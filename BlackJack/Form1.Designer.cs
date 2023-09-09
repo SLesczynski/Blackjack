@@ -43,6 +43,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.playerHandCount = new System.Windows.Forms.Label();
             this.dealerHandCount = new System.Windows.Forms.Label();
+            this.PastGames = new System.Windows.Forms.Label();
+            this.PastGamesLabel = new System.Windows.Forms.Label();
+            this.DeckLocation = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.DeckLocation)).BeginInit();
             this.SuspendLayout();
             // 
             // hitButton
@@ -145,7 +149,7 @@
             // 
             // dealerCards
             // 
-            this.dealerCards.Location = new System.Drawing.Point(173, 87);
+            this.dealerCards.Location = new System.Drawing.Point(173, 85);
             this.dealerCards.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dealerCards.Name = "dealerCards";
             this.dealerCards.Size = new System.Drawing.Size(667, 25);
@@ -197,12 +201,45 @@
             this.dealerHandCount.TabIndex = 16;
             this.dealerHandCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // PastGames
+            // 
+            this.PastGames.BackColor = System.Drawing.Color.DarkGray;
+            this.PastGames.Location = new System.Drawing.Point(897, 41);
+            this.PastGames.Name = "PastGames";
+            this.PastGames.Size = new System.Drawing.Size(153, 390);
+            this.PastGames.TabIndex = 17;
+            this.PastGames.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // PastGamesLabel
+            // 
+            this.PastGamesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.PastGamesLabel.Location = new System.Drawing.Point(897, 12);
+            this.PastGamesLabel.Name = "PastGamesLabel";
+            this.PastGamesLabel.Size = new System.Drawing.Size(153, 23);
+            this.PastGamesLabel.TabIndex = 18;
+            this.PastGamesLabel.Text = "Past Games";
+            this.PastGamesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DeckLocation
+            // 
+            this.DeckLocation.ErrorImage = null;
+            this.DeckLocation.Image = global::BlackJack.Properties.Resources.BackOfCard;
+            this.DeckLocation.Location = new System.Drawing.Point(755, 184);
+            this.DeckLocation.Name = "DeckLocation";
+            this.DeckLocation.Size = new System.Drawing.Size(85, 120);
+            this.DeckLocation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DeckLocation.TabIndex = 19;
+            this.DeckLocation.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.DeckLocation);
+            this.Controls.Add(this.PastGamesLabel);
+            this.Controls.Add(this.PastGames);
             this.Controls.Add(this.dealerHandCount);
             this.Controls.Add(this.playerHandCount);
             this.Controls.Add(this.label1);
@@ -222,6 +259,7 @@
             this.Name = "Form1";
             this.Text = "BlackJack";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DeckLocation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +282,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label playerHandCount;
         private System.Windows.Forms.Label dealerHandCount;
+        private System.Windows.Forms.Label PastGames;
+        private System.Windows.Forms.Label PastGamesLabel;
+        private System.Windows.Forms.PictureBox DeckLocation;
     }
 }
 
